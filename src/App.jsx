@@ -6,8 +6,9 @@ import {useEffect} from "react";
 export function App() {
 
   const [activeLight, setActiveLight] = useState("red");
-  const [isActive, setIsActive]=useState(false);
-  // useEffect(()=>)
+  const [isActive, setIsActive] = useState(false);
+  
+  useEffect(()=>{}
 
   useEffect(()=>{
     if (!isActive)return
@@ -41,7 +42,7 @@ export function App() {
       <h1 style={{width: "fit-content", margin: "auto"}}>
         {activeLight}
       </h1>
-      {/* <button onClick={()=>setIsActive(!isActive(true))} */}
+      <button onClick={()=>setIsActive(!isActive(true))}>Click me</button>
     </>
   );
 }

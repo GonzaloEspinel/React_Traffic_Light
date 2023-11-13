@@ -7,8 +7,6 @@ export function App() {
 
   const [activeLight, setActiveLight] = useState("red");
   const [isActive, setIsActive] = useState(false);
-  
-  useEffect(()=>{}
 
   useEffect(()=>{
     if (!isActive)return
@@ -17,10 +15,10 @@ export function App() {
         case "red":
           setActiveLight("yellow");
           break;
-          case "yellow":
+        case "yellow":
             setActiveLight("green");
             break;
-            case "green":
+        case "green":
               setActiveLight("red");
       }
 
@@ -42,7 +40,7 @@ export function App() {
       <h1 style={{width: "fit-content", margin: "auto"}}>
         {activeLight}
       </h1>
-      <button onClick={()=>setIsActive(!isActive(true))}>Click me</button>
+      <button onClick={()=>setIsActive(!isActive)}>Click me</button>
     </>
   );
 }

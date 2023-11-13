@@ -1,35 +1,45 @@
-import { useEffect, useState } from 'react';
-import './App.css'
-import { Light } from './Light'
+import "./App.css";
+import {useState} from "react";
+import { Light } from "./Light";
+import {useEffect} from "react";
 
-export default function App() {
+export function App() {
 
-  const [activeLight, setActiveLight] = useState("red")
+  const [activeLight, setActiveLight] = useState("red");
 
-  useEffect(() => {
-    const intervalo = setInterval(() => {
-      switch (activeLight) {
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      switch(activeLight){
         case "red":
           setActiveLight("yellow");
+          break;
+          case "yellow":
+            setActiveLight("green");
+            break;
+            case "green":
+              setActiveLight("red");
       }
-    }, 3000);
 
-    return () => clearInterval(intervalo)
+    },3000);
+
+    return ()=> clearInterval(interval)
+
   })
+
 
   return (
     <>
-      <div className="rope">
-
-      </div>
+      <div className="stick"/>
       <div className="trafficLight">
-        <Light color="red" opacity={activeLight === "red" ? 1 :0.4} />
-        <Light color="yellow" opacity= {activeLight === "yellow" ? 1 :0.4} />
-        <Light color="green" opacity= {activeLight === "green" ? 1 :0.4} />
+        <Light color="red" />
+        <Light color="yellow" />
+        <Light color="green" />
       </div>
-      <h1 style={{ margin: "auto", width: "fit-content" }}>{activeLight}</h1>
+      <h1 style={{width: "fit-content", margin: "auto"}}>
+        {activeLight}
+      </h1>
     </>
   );
 }
 
-
+export default App;

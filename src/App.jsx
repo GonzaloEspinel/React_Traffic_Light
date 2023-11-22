@@ -10,39 +10,40 @@ export function App() {
 
   useEffect(()=>{
     if (!isActive)return
-    const interval = setInterval(()=>{
-      switch(activeLight){
+    const interval = setInterval(() => {
+      if (!isActive) {
+        return;
+      }
+      switch (activeLight) {
         case "red":
-          setActiveLight("yellow");
+          setActiveLight("Yellow");
           break;
         case "yellow":
-            setActiveLight("green");
-            break;
+          setActiveLight("Green");
+          break;
         case "green":
-              setActiveLight("red");
+          setActiveLight("Red");
       }
-
-    },3000);
-
-    return ()=> clearInterval(interval)
-
-  })
-
+    }, 2000);
+    return () => clearInterval(interval);
+  });
 
   return (
     <>
-      <div className="stick"/>
+      <div className="cord"></div>
       <div className="trafficLight">
-        <Light color="red" />
-        <Light color="yellow" />
-        <Light color="green" />
+        <Light color="Red" opacity={activeLight === "Red" ? 1 : 0.5} />
+        <Light color="Yellow" opacity={activeLight === "Yellow" ? 1 : 0.5} />
+        <Light color="Green" opacity={activeLight === "Green" ? 1 : 0.5} />
       </div>
-      <h1 style={{width: "fit-content", margin: "auto"}}>
-        {activeLight}
-      </h1>
-      <button onClick={()=>setIsActive(!isActive)}>Click me</button>
+      <button
+        style={{ margin: "auto", display: "flex", marginTop: "2rem" }}
+        onClick={() => setIsActive(!isActive)}
+      >
+        Start/Stop
+      </button>
+      <h1 style={{ margin: "auto", width: "fit-content" }}>{activeLight}</h1>
     </>
   );
 }
-
 export default App;

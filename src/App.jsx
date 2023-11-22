@@ -15,16 +15,16 @@ export function App() {
         return;
       }
       switch (activeLight) {
-        case "red":
+        case "Red":
           setActiveLight("Yellow");
           break;
-        case "yellow":
+        case "Yellow":
           setActiveLight("Green");
           break;
-        case "green":
+        case "Green":
           setActiveLight("Red");
       }
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   });
 
@@ -32,9 +32,9 @@ export function App() {
     <>
       <div className="cord"></div>
       <div className="trafficLight">
-        <Light color="Red" opacity={activeLight === "Red" ? 1 : 0.5} />
-        <Light color="Yellow" opacity={activeLight === "Yellow" ? 1 : 0.5} />
-        <Light color="Green" opacity={activeLight === "Green" ? 1 : 0.5} />
+        <Light color="Red" opacity={activeLight === "Red" ? 1 : 0.4} />
+        <Light color="Yellow" opacity={activeLight === "Yellow" ? 1 : 0.4} />
+        <Light color="Green" opacity={activeLight === "Green" ? 1 : 0.4} />
       </div>
       <button
         style={{ margin: "auto", display: "flex", marginTop: "2rem" }}
